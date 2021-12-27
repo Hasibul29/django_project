@@ -1,0 +1,258 @@
+{%load static%} {% include 'header.html' %} {% block content %} {% endblock %}
+<!-- Page Title #1
+============================================= -->
+<section
+  id="page-title"
+  class="page-title bg-overlay bg-parallax bg-overlay-gradient"
+>
+  <div class="bg-section">
+    <img
+      src="{% static 'assets/images/page-title/16.jpg' %}"
+      alt="Background"
+    />
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="title title-1 text-center">
+          <div class="title--content">
+            <div class="title--subtitle">Fresh, Tasty Meals</div>
+            <div class="title--heading">
+              <h1>Discover Our Menu</h1>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <ol class="breadcrumb">
+            <li><a href="/home">Home</a></li>
+            <li><a href="/home">menu</a></li>
+            <li class="active">simple</li>
+          </ol>
+          <div class="divider--shape-1down"></div>
+        </div>
+        <!-- .title end -->
+      </div>
+      <!-- .col-md-12 end -->
+    </div>
+    <!-- .row end -->
+  </div>
+  <!-- .container end -->
+</section>
+<!-- #page-title end -->
+
+<!-- Menu Simple
+============================================= -->
+<section id="menuSimple">
+  <div class="container">
+    <div class="row clearfix">
+      <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
+        <div class="heading heading-1 mb-50 text--center">
+          <p class="heading--subtitle">Start Eating Better</p>
+          <h2 class="heading--title mb-0">Daily New Fresh Meals</h2>
+          <div class="divider--shape-4"></div>
+          <p class="heading--desc">
+            Steak In has the perfect place to enjoy fine food and great
+            cocktails with excellent service, in comfortable atmospheric
+            surroundings. We have a soft dining room, combined with an open
+            kitchen, coffee take out bar and alovely awesome on site coffee
+            roastery.
+          </p>
+        </div>
+      </div>
+      <!-- .col-md-8 end -->
+    </div>
+    <!-- .row end -->
+  </div>
+  <!-- .container end -->
+  <div class="container-fluid pr-0 pl-0 tabs">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs">
+          <li><a href="#breakfast" data-toggle="tab">Breakfast</a></li>
+          <li class="active"><a href="#lunch" data-toggle="tab">Lunch</a></li>
+          <li><a href="#dinner" data-toggle="tab">Dinner</a></li>
+          <li><a href="#dessert" data-toggle="tab">Dessert</a></li>
+          <li><a href="#drinks" data-toggle="tab">Drinks</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div class="tab-pane fade" id="breakfast">
+            <!-- Menu
+============================================= -->
+            <div class="menu-simple">
+              <div class="container">
+                <div class="row">
+                  {%for p in bf%}
+                  <div class="col-xs-12 col-sm-12 col-md-6">
+                    <div class="dish-panel">
+                      <div class="dish--img">
+                        <img src="{{p.image.url}}" alt="dish" />
+                      </div>
+                      <div class="dish--content">
+                        <div class="dish--content-bio">
+                            <h3 class="dish--title"><a href ="shop-single/{{p.id}}/">{{p.item}}</a></h3>
+                          <div class="dish--price">৳{{p.price}}</div>
+                        </div>
+                        <p class="dish--desc">{{p.description}}</p>
+                      </div>
+                    </div>
+                    <!-- .dish end -->
+                  </div>
+                  <!-- .dish-panel end -->
+                  {% endfor %}
+                </div>
+                <!-- .row end -->
+              </div>
+              <!-- .container end -->
+            </div>
+            <!-- #menuSimple1 end -->
+          </div>
+          <!-- .tab-pane end -->
+          <div class="tab-pane fade in active" id="lunch">
+            <!-- Menu
+============================================= -->
+            <div class="menu-simple">
+              <div class="container">
+                <div class="row">
+                  <!-- Dish #1 -->
+                  {%for p in ln%}
+                  <div class="col-xs-12 col-sm-12 col-md-6">
+                    <div class="dish-panel">
+                      <div class="dish--img">
+                        <img src="{{p.image.url}}" alt="dish" />
+                      </div>
+                      <div class="dish--content">
+                        <div class="dish--content-bio">
+                          <h3 class="dish--title"><a href ="shop-single/{{p.id}}/">{{p.item}}</a></h3>
+                          <div class="dish--price">৳{{p.price}}</div>
+                        </div>
+                        <p class="dish--desc">{{p.description}}</p>
+                      </div>
+                    </div>
+                    <!-- .dish end -->
+                  </div>
+                  <!-- .dish-panel end -->
+                  {%endfor%}
+                </div>
+                <!-- .row end -->
+              </div>
+              <!-- .container end -->
+            </div>
+            <!-- #menuSimple1 end -->
+          </div>
+          <!-- .tab-pane end -->
+          <div class="tab-pane fade" id="dinner">
+            <!-- Menu
+============================================= -->
+            <div class="menu-simple">
+              <div class="container">
+                <div class="row">
+                  <!-- Dish #1 -->
+                  {%for p in din%}
+                  <div class="col-xs-12 col-sm-12 col-md-6">
+                    <div class="dish-panel">
+                      <div class="dish--img">
+                        <img src="{{p.image.url}}" alt="dish" />
+                      </div>
+                      <div class="dish--content">
+                        <div class="dish--content-bio">
+                            <h3 class="dish--title"><a href ="shop-single/{{p.id}}/">{{p.item}}</a></h3>
+                          <div class="dish--price">৳{{p.price}}</div>
+                        </div>
+                        <p class="dish--desc">{{p.description}}</p>
+                      </div>
+                    </div>
+                    <!-- .dish end -->
+                  </div>
+                  <!-- .dish-panel end -->
+
+                  {%endfor%}
+                </div>
+                <!-- .row end -->
+              </div>
+              <!-- .container end -->
+            </div>
+            <!-- #menuSimple1 end -->
+          </div>
+          <!-- .tab-pane end -->
+          <div class="tab-pane fade" id="dessert">
+            <!-- Menu
+============================================= -->
+            <div class="menu-simple">
+              <div class="container">
+                <div class="row">
+                  <!-- Dish #1 -->
+                  {%for p in des%}
+                  <div class="col-xs-12 col-sm-12 col-md-6">
+                    <div class="dish-panel">
+                      <div class="dish--img">
+                        <img src="{{p.image.url}}" alt="dish" />
+                      </div>
+                      <div class="dish--content">
+                        <div class="dish--content-bio">
+                            <h3 class="dish--title"><a href ="shop-single/{{p.id}}/">{{p.item}}</a></h3>
+                          <div class="dish--price">৳{{p.price}}</div>
+                        </div>
+                        <p class="dish--desc">{{p.description}}</p>
+                      </div>
+                    </div>
+                    <!-- .dish end -->
+                  </div>
+                  <!-- .dish-panel end -->
+                  {%endfor%}
+                </div>
+                <!-- .row end -->
+              </div>
+              <!-- .container end -->
+            </div>
+            <!-- #menuSimple1 end -->
+          </div>
+          <!-- .tab-pane end -->
+          <div class="tab-pane fade" id="drinks">
+            <!-- Menu
+============================================= -->
+            <div id="menuSimple2" class="menu-simple">
+              <div class="container">
+                <div class="row">
+                  <!-- Dish #1 -->
+                  {%for p in dri%}
+                  <div class="col-xs-12 col-sm-12 col-md-6">
+                    <div class="dish-panel">
+                      <div class="dish--img">
+                        <img src="{{p.image.url}}" alt="dish" />
+                      </div>
+                      <div class="dish--content">
+                        <div class="dish--content-bio">
+                            <h3 class="dish--title"><a href ="shop-single/{{p.id}}/">{{p.item}}</a></h3>
+                          <div class="dish--price">৳{{p.price}}</div>
+                        </div>
+                        <p class="dish--desc">{{p.description}}</p>
+                      </div>
+                    </div>
+                    <!-- .dish end -->
+                  </div>
+                  <!-- .dish-panel end -->
+
+                  {%endfor%}
+                </div>
+                <!-- .row end -->
+              </div>
+              <!-- .container end -->
+            </div>
+            <!-- #menuSimple1 end -->
+          </div>
+          <!-- .tab-pane end -->
+        </div>
+        <!-- .tabs-content end -->
+      </div>
+      <!-- .col-md-12 end -->
+    </div>
+    <!-- .row end -->
+  </div>
+  <!-- .container end -->
+</section>
+<!-- #menuSimple end -->
+
+{%include 'footer.html'%}
+    {%block content-footer%} 
+{%endblock%}
