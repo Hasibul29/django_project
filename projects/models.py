@@ -29,3 +29,19 @@ class food(models.Model):
 
     def __str__(self)->str:
         return str(self.item)
+
+class Reservation(models.Model):
+    Pending = 'Pending'
+    Accepted = 'Accepted'
+    Rejected = 'Rejected'
+    status = [(Pending, 'Pending'),
+        (Accepted, 'Accepted'),
+        (Rejected, 'Rejected'),
+        ]
+    people = models.CharField(max_length=20)
+    date = models.DateField()
+    email =models.CharField(max_length=50)
+    time = models.TimeField()
+    status = models.CharField(max_length=10,choices=status,default='Pending')
+
+    

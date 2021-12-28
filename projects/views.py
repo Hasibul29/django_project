@@ -3,15 +3,16 @@ from django.shortcuts import render, redirect
 from django.http.response import HttpResponse
 from .models import food
 from .models import Tag
+from .models import Reservation
 from .utils import Search
 from .utils import search_food
 from django.db.models import Q
+from django.core.mail import EmailMultiAlternatives
 def search(request):
     foods = food.objects.all()
     if request.method == "GET":
         search = request.GET.get('search')
         print(">>>>>>>>>>>>>>>>>>>>>>>>>")
-        # tags = Tag.objects.filter(meal_type=search)
         result = food.objects.distinct().filter(
         Q(item__icontains=search) | Q(description__icontains = search)|Q(tags__meal_type__icontains=search))
         context = {
@@ -69,4 +70,23 @@ def about(request):
 # 		{'searched':searched,
 # 		'x':x})
         
+
+def reservation(request):
+    if request.POST.get("people"):
+        people = request.POST.get("people")
+        email = request.POST.get("email")
+        date = request.POST.get("date")
+        time = request.POST.get("time")
+        print(people)
+        aaa = Reservation(people= people,email=email,date=date,time=time)
+        aaa.save()
+        subject , from_email, to = 'About the reservation at----', 'supply171837@gmail.com',email
+        text_content = '''Thank you for your reservation. The confirmation is pending! We will text you soon!'''
+       
+        msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+        # msg.attach_alternative(html_content, "")
+        msg.send()
+        return redirect('reservation')
     
+    return render(request,'reservation.html')
+   
