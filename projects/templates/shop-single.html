@@ -49,16 +49,16 @@
                 <!-- .aret end -->
 
                 <div class="product-img mb-50">
-                    <img class="img-responsive" src="{% static 'assets/images/shop/full/1.jpg' %}" alt="product image">
+                    <img class="img-responsive" src="{{project.image.url}}" alt="product image">
                 </div>
                 <!-- .product-img end -->
                 <div class="product-title">
-                    <h3>Mexican Cheese Burger</h3>
+                    <h3>{{project.item}}</h3>
                 </div>
                 <!-- .product-title end -->
                 <div class="product-meta mb-30">
                     <div class="product-price pull-left pull-none-xs">
-                        $ 18.99
+                        ৳{{project.price}}
                     </div>
                     <!-- .product-price end -->
                     <div class="product-review text-right text-center-xs">

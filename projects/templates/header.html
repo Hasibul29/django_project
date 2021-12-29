@@ -106,7 +106,7 @@
 
 <!-- About Menu -->
 <li>
-    <a href="/menu">Menu</a>
+    <a class="menu-item" href="/menu">Menu</a>
 </li>
 <!-- li end -->
 
@@ -144,16 +144,17 @@
                                         <div class="divider--shape-4"></div>
                                     </div>
                                     <div class="reservation--dec">
-                                        You can Book a table online easily in just a couple of minutes. We take reservations for lunch and dinner, just check the availability of your table & book it now!
+                                        You can Book a table online easily in just a couple of minutes. We take reservations for lunch and dinner, just check the mail about your confirmation!
                                     </div>
-                                    <form method="post" action="{%static 'assets/php/reservationpopup.php'%}" class="reservationPopupForm mb-0">
+                                    <form method="POST" action="" name="Form" >
+                                       {% csrf_token %}
                                         <div class="row">
                                             <div class="col-xs-12 col-sm-12 col-md-4">
-                                                <div class="form-select">
+                                                 <div class="form-select">
                                                     <i class="fa fa-angle-down"></i>
-                                                    <select class="form-control" name="people" id="numPopup" required>
+                                                    <select class="form-control" name="people" id="people" required>
 														<option value="">Number of people</option>
-<option value="2">2 People</option>
+                                                        <option value="2">2 People</option>
 														<option value="3">3 People</option>
 														<option value="4">4 People</option>
 														<option value="5">5 People</option>
@@ -161,36 +162,24 @@
 														<option value="8">8 People</option>
 														<option value="10">10 People</option>
 													</select>
-                                                </div>
+                                                </div> 
+                                                {% comment %} <input type="text" class="form-control" placeholder="Date of the reservation" name="people" id="people"> {% endcomment %}
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-4">
-                                                <div class="form-select">
-                                                    <i class="fa fa-angle-down"></i>
-                                                    <select class="form-control" name="day" id="dayPopup" required>
-														<option value="">Date</option>
-<option value="november 23">November 23, 2018</option>
-														<option value="november 24">November 24, 2018</option>
-														<option value="november 25">November 25, 2018</option>
-														<option value="november 26">November 26, 2018</option>
-														<option value="november 27">November 27, 2018</option>
-													</select>
-                                                </div>
+                                                <input type="date" class="form-control" placeholder="Date of the reservation" name="date" id="date">
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-4">
-                                                <div class="form-select">
-                                                    <i class="fa fa-angle-down"></i>
-                                                    <select class="form-control" name="time" id="timePopup" required>
-														<option value="">Time</option>
-<option value="8:00">8:00 PM</option>
-														<option value="9:00">9:00 PM</option>
-														<option value="10:00">10:00 PM</option>
-														<option value="11:00">11:00 PM</option>
-														<option value="12:00">12:00 AM</option>
-													</select>
+
+                                                    <input type="time" class="form-control" placeholder="Time of the reservation" name="time" id="time">
+                                                
                                                 </div>
+                                                <div class="col-xs-12 col-sm-12 col-md-4">
+                                                    <input type="email" class="form-control" placeholder="Enter your email" name="email" id="email">
+                                                </div> 
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-12">
-                                                <button type="submit" id="submit-message" class="btn btn--secondary btn--block">Find Table</button>
+                                                <button onclick = "document.getElementById('demo').innerText='Thank you for your reservatiion, You will be notify soon about your reservation via email..'" type="submit" id="submit-reservation" class="btn btn--secondary btn--block">Find Table</button>
+                                <div style="color:gray, font-size:14px" id="demo" class="col-xs-12 col-sm-12 col-md-12"> 
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-12">
                                                 <!--Alert Message-->

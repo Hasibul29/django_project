@@ -30,9 +30,32 @@ def tags(request):
                 'din': din,
                 'des': des,
                 'dri': dri,
-                
+                'aa': reservation(request)
                 }
     return context
+
+
+def reservation(request):
+    if request.POST.get("people"):
+        people = request.POST.get("people")
+        email = request.POST.get("email")
+        date = request.POST.get("date")
+        time = request.POST.get("time")
+        print(people)
+        aaa = Reservation(people= people,email=email,date=date,time=time)
+        aaa.save()
+        subject , from_email, to = 'About the reservation at----', 'supply171837@gmail.com',email
+        text_content = '''Thank you for your reservation. The confirmation is pending! We will text you soon!'''
+       
+        msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+        # msg.attach_alternative(html_content, "")
+        msg.send()
+        return redirect('reservation')
+    
+    return render(request,'reservation.html')
+
+
+
 
 
 def home(request):
@@ -60,33 +83,7 @@ def menu_page(request):
 def about(request):
     return render(request,'about.html')
 
-# def search(request):
-# 	if request.method == "POST":
-# 		searched = request.POST['searched']
-# 		x = food.objects.filter(item__contains=searched)
-	
-# 		return render(request, 
-# 		'home/search.html', 
-# 		{'searched':searched,
-# 		'x':x})
         
 
-def reservation(request):
-    if request.POST.get("people"):
-        people = request.POST.get("people")
-        email = request.POST.get("email")
-        date = request.POST.get("date")
-        time = request.POST.get("time")
-        print(people)
-        aaa = Reservation(people= people,email=email,date=date,time=time)
-        aaa.save()
-        subject , from_email, to = 'About the reservation at----', 'supply171837@gmail.com',email
-        text_content = '''Thank you for your reservation. The confirmation is pending! We will text you soon!'''
-       
-        msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
-        # msg.attach_alternative(html_content, "")
-        msg.send()
-        return redirect('reservation')
-    
-    return render(request,'reservation.html')
+
    
