@@ -8,6 +8,12 @@ from .utils import Search
 from .utils import search_food
 from django.db.models import Q
 from django.core.mail import EmailMultiAlternatives
+
+
+
+
+
+
 def search(request):
     foods = food.objects.all()
     if request.method == "GET":

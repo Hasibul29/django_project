@@ -5,8 +5,6 @@
 
 {% endblock %}
 
-<!-- Page Title #1
-============================================= -->
 <section id="page-title" class="page-title bg-overlay bg-parallax bg-overlay-gradient">
     <div class="bg-section">
         <img src="{% static 'assets/images/page-title/2.jpg' %}" alt="Background" />
@@ -36,10 +34,7 @@
     </div>
     <!-- .container end -->
 </section>
-<!-- #page-title end -->
 
-<!-- Reservation #1
-============================================= -->
 <section id="reservation1" class="reservation bg-white pb-80 pt-90">
     <div class="container">
         <div class="row">
@@ -52,9 +47,9 @@
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-4">
-                                {% comment %} <div class="form-select">
+                                <div class="form-select">
                                     <i class="fa fa-angle-down"></i>
-                                    <select class="form-control" name="people" id="num">
+                                    <select class="form-control" name="people" id="people">
 									<option value="">Number of people</option>
                                     <option value="2">2 People</option>
 									<option value="3">3 People</option>
@@ -64,8 +59,8 @@
 									<option value="8">8 People</option>
 									<option value="10">10 People</option>
 								</select>
-                                </div> {% endcomment %}
-                                <input type="text" class="form-control" placeholder="Date of the reservation" name="people" id="people">
+                                </div> 
+            
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-4">
                                 <input type="date" class="form-control" placeholder="Date of the reservation" name="date" id="date">
@@ -101,235 +96,7 @@
     </div>
     <!-- .container end -->
 </section>
-<!-- #reservation1 end -->
 
-<!-- Testimonial #5
-============================================= -->
-<section id="testimonial5" class="testimonial testimonial-5 bg-overlay bg-parallax bg-overlay-dark text-center">
-    <div class="bg-section">
-        <img src="{% static 'assets/images/background/2.jpg' %}" alt="Background" />
-    </div>
-    <div class="container">
-        <div class="divider--shape-1up"></div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
-                <div id="testimonial-wide" class="carousel carousel-white" data-slide="1" data-slide-rs="1" data-autoplay="false" data-nav="false" data-dots="false" data-space="0" data-loop="true" data-speed="800">
-                    <!-- Testimonial #1 -->
-                    <div class="testimonial-panel">
-                        <div class="testimonial--img">
-                            <img src="{% static 'assets/images/testimonial/chef-hat.png' %}" alt="hat">
-                        </div>
-                        <div class="testimonial--body">
-                            <p class="color-white">I think the most wonderful thing in the world is another chef. I'm always excited about learning new things about food.</p>
-                        </div>
-                        <!-- .testimonial-body end -->
-                        <div class="testimonial--meta">
-                            <div class="testimonial--author">
-                                <h4>- Mahmoud Baghagho</h4>
-                            </div>
-                        </div>
-                        <!-- .testimonial-meta end -->
-                    </div>
-                    <!-- .testimonial-panel end -->
-
-                    <!-- Testimonial #2 -->
-                    <div class="testimonial-panel">
-                        <div class="testimonial--img">
-                            <img src="{% static 'assets/images/testimonial/chef-hat.png' %}" alt="hat">
-                        </div>
-                        <div class="testimonial--body">
-                            <p class="color-white">I think the most wonderful thing in the world is another chef. I'm always excited about learning new things about food.</p>
-                        </div>
-                        <!-- .testimonial-body end -->
-                        <div class="testimonial--meta">
-                            <div class="testimonial--author">
-                                <h4>- Henry Gabriel</h4>
-                            </div>
-                        </div>
-                        <!-- .testimonial-meta end -->
-                    </div>
-                    <!-- .testimonial-panel end -->
-
-                    <!-- Testimonial #3 -->
-                    <div class="testimonial-panel">
-                        <div class="testimonial--img">
-                            <img src="{% static 'assets/images/testimonial/chef-hat.png' %}" alt="hat">
-                        </div>
-                        <div class="testimonial--body">
-                            <p class="color-white">I think the most wonderful thing in the world is another chef. I'm always excited about learning new things about food.</p>
-                        </div>
-                        <!-- .testimonial-body end -->
-                        <div class="testimonial--meta">
-                            <div class="testimonial--author">
-                                <h4>- Leo Jaxon</h4>
-                            </div>
-                        </div>
-                        <!-- .testimonial-meta end -->
-                    </div>
-                    <!-- .testimonial-panel end -->
-
-                    <!-- Testimonial #4 -->
-                    <div class="testimonial-panel">
-                        <div class="testimonial--img">
-                            <img src="{% static 'assets/images/testimonial/chef-hat.png' %}" alt="hat">
-                        </div>
-                        <div class="testimonial--body">
-                            <p class="color-white">I think the most wonderful thing in the world is another chef. I'm always excited about learning new things about food.</p>
-                        </div>
-                        <!-- .testimonial-body end -->
-                        <div class="testimonial--meta">
-                            <div class="testimonial--author">
-                                <h4>- Anthony Hunter</h4>
-                            </div>
-                        </div>
-                        <!-- .testimonial-meta end -->
-                    </div>
-                    <!-- .testimonial-panel end -->
-                </div>
-            </div>
-            <!-- .col-md-12 end -->
-        </div>
-        <!-- .row end -->
-        <div class="divider--shape-1down"></div>
-    </div>
-    <!-- .container end -->
-</section>
-<!-- .testimonial5 end -->
-
-<!-- Banner#6
-============================================= -->
-<section id="banner6" class="banner banner-1 text-center pb-90">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="banner-panel">
-                    <div class="banner--img">
-                        <img src="{% static 'assets/images/banners/1.jpg' %}" alt="banner img" class="img-responsive">
-                    </div>
-                    <div class="banner--content">
-                        <h4>Daily New Fresh Menus</h4>
-                        <p>Steak In help you treat yourself with a different meal everyday, thanks to our daily changing menus and our awesome creative chefs!</p>
-                    </div>
-                </div>
-                <!-- .banner-panel end -->
-            </div>
-            <!-- .col-md-4 end -->
-
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="banner-panel">
-                    <div class="banner--img">
-                        <img src="{% static 'assets/images/banners/2.jpg' %}" alt="banner img" class="img-responsive">
-                    </div>
-                    <div class="banner--content">
-                        <h4>Fresh Ingredient, Tasty Meals</h4>
-                        <p>Who said healthy food can't also be delicious? Steak In creative chefs use fresh and seasonal ingredients to make affordable.</p>
-                    </div>
-                </div>
-                <!-- .banner-panel end -->
-            </div>
-            <!-- .col-md-4 end -->
-
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="banner-panel">
-                    <div class="banner--img">
-                        <img src="{% static 'assets/images/banners/3.jpg' %}" alt="banner img" class="img-responsive">
-                    </div>
-                    <div class="banner--content">
-                        <h4>Creative & Talented Chefs</h4>
-                        <p>Steak In have offered a team of culinary professionals that make delectable dishes at memorable events for both private clientele.</p>
-                    </div>
-                </div>
-                <!-- .banner-panel end -->
-            </div>
-            <!-- .col-md-4 end -->
-
-        </div>
-        <!-- .row end -->
-    </div>
-    <!-- .container end -->
-</section>
-<!-- #banner6 end -->
-
-<!-- footer#1
-============================================= -->
-<footer id="footer" class="footer footer-1 text-center">
-    <div class="divider--shape-dark"></div>
-    <!-- Widget Section
-	============================================= -->
-    <div class="footer--widget text--center">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                    <div class="footer--widget-content">
-                        <h3>Follow Us</h3>
-                        <div class="footer--social-icons">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
-                            <a href="#"><i class="fa fa-tripadvisor"></i></a>
-                        </div>
-                        <!-- .social-icons end -->
-                    </div>
-                </div>
-                <!-- .col-md-4 end -->
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                    <div class="footer--widget-content">
-                        <img class="mb-20" src="{% static 'assets/images/logo/logo-light.png' %}" alt="logo">
-                        <p>Steak In has the perfect place to enjoy fine food and great cocktails with excellent service, in comfortable atmospheric surroundings. We have a soft dining room, combined with an open kitchen, coffee take out bar.</p>
-                    </div>
-                </div>
-                <!-- .col-md-3 end -->
-
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                    <div class="footer--widget-content">
-                        <h3>Neswletter</h3>
-                        <div class="widget--newsletter">
-                            <form class="footer--social-newsletter mailchimp">
-                                <input type="email" name="email" class="form-control" placeholder="Subscribe Our Newsletter">
-                                <button type="submit">join</button>
-                            </form>
-                            <div class="subscribe-alert"></div>
-                        </div>
-                        <!-- .widget end -->
-                    </div>
-                </div>
-                <!-- .col-md-3 end -->
-            </div>
-        </div>
-        <!-- .container end -->
-    </div>
-    <!-- .footer-widget end -->
-    <!-- Copyrights
-	============================================= -->
-    <div class="footer--copyright text-center">
-        <div class="divider--shape-dark2"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="contact-info">
-                        <span>22 Alnahas Building, Tanta, Egypt</span> -
-                        <span>02 01065370701</span> -
-                        <span>7oroof@7oroof.com</span>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <span>&copy; 2017 Steak In, With Love by </span> <a href="http://themeforest.net/user/7oroof/portfolio?ref=zytheme">7oroof.com</a>
-                </div>
-            </div>
-        </div>
-        <!-- .container end -->
-    </div>
-    <!-- .footer-copyright end -->
-</footer>
-</div>
-<!-- #wrapper end -->
-
-<!-- Footer Scripts
-============================================= -->
-<script src="{% static 'assets/js/jquery-2.2.4.min.js' %}"></script>
-<script src="{% static 'assets/js/plugins.js' %}"></script>
-<script src="{% static 'assets/js/functions.js' %}"></script>
-</body>
-
-</html>
+{%include 'footer.html'%}
+{% block content-footer%}
+{%endblock%}
