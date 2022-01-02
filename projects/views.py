@@ -27,7 +27,7 @@ def search(request):
     else:
         return render(request,'#')
 def tags(request):
-    bf,ln,din,des,dri =  Search(request)
+    bf,ln,din,des,dri,sp =  Search(request)
     all_projects = food.objects.all()
    
     context = {'a': all_projects,
@@ -36,6 +36,7 @@ def tags(request):
                 'din': din,
                 'des': des,
                 'dri': dri,
+                'sp': sp,
                 'aa': reservation(request)
                 }
     return context
@@ -50,7 +51,7 @@ def reservation(request):
         print(people)
         aaa = Reservation(people= people,email=email,date=date,time=time)
         aaa.save()
-        subject , from_email, to = 'About the reservation at----', 'supply171837@gmail.com',email
+        subject , from_email, to = 'About the reservation at MOGO', 'supply171837@gmail.com',email
         text_content = '''Thank you for your reservation. The confirmation is pending! We will text you soon!'''
        
         msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
@@ -65,9 +66,33 @@ def reservation(request):
 
 
 def home(request):
-
+    p = Reservation.objects.all()
+   
     context = tags(request)
-    
+    for x in p:
+        if x.status=='Accepted' and (x.confirmation!=True or x.confirmation!=True):
+            q = Reservation.objects.get(pk=x.id)
+            q.confirmation = True
+            q.save()
+            subject , from_email, to = 'About the reservation at MOGO', 'supply171837@gmail.com',x.email
+            text_content = '''Thank you for your reservation. The confirmation is Accepted! '''
+            msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+            # msg.attach_alternative(html_content, "")
+            msg.send()
+            
+
+        # x.status=='Rejected' and  (x.confirmation!="True" or x.confirmation!='False'):
+
+        if x.status=='Rejected' and  (x.confirmation!=False):
+            # print("CONFRMATION---->" )
+            # print(x.confirmation)
+            q = Reservation.objects.get(pk=x.id)
+            q.confirmation = False
+            q.save()
+            subject , from_email, to = 'About the reservation at MOGO', 'supply171837@gmail.com',x.email
+            text_content = '''Thank you for your reservation. The confirmation is Rejected! '''
+            msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+            msg.send()
     return render(request,'home.html',context)
 def home_page(request): 
     context = tags(request)

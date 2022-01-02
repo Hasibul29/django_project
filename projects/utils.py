@@ -8,7 +8,8 @@ def Search(request):
     din =food.objects.filter(tags__meal_type='Dinner')
     des =food.objects.filter(tags__meal_type='Dessert')
     dri =food.objects.filter(tags__meal_type='Drinks')
-    return bf,ln,din,des,dri
+    sp =food.objects.filter(tags__meal_type='Special')
+    return bf,ln,din,des,dri,sp
 
 def search_food(request):
 

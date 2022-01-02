@@ -15,9 +15,9 @@ class FoodTag(admin.ModelAdmin):
 class Reservations(admin.ModelAdmin):
     # fields = ('title', 'tags', 'created')
     search_fields = ['status']
-    list_editable = ['status']
+    list_editable = ['status','confirmation']
     list_display = ('people', 'date', 'time',
-                    'status')
+                    'status','confirmation',)
 
     
 admin.site.register(food,Food)
